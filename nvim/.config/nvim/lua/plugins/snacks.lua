@@ -38,6 +38,10 @@ return {
     -- },
     picker = {
       sources = {
+        files = {
+          hidden = true,
+          exclude = { ".git", ".DS_Store", "node_modules" },
+        },
         explorer = {
           hidden = true,
           ignored = true,

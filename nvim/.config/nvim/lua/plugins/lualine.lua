@@ -11,7 +11,7 @@ return {
       }
 
       opts.sections.lualine_a = { { "mode", separator = { left = "" }, right_padding = 2 } }
-      opts.sections.lualine_z = { { "location", separator = { right = "" }, left_padding = 2 } }
+      opts.sections.lualine_z = { { "datetime", style = "%I:%M %p", separator = { right = "" }, left_padding = 2 } }
     end,
   },
 }
