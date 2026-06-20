@@ -140,6 +140,10 @@ export PATH=$PATH:~/.spicetify
 export PATH="$HOME/.config/composer/vendor/bin:$PATH"
 export JAVA_HOME=$(readlink -f /usr/bin/java | sed "s:/bin/java::")
 export PATH=$JAVA_HOME/bin:$PATH
+export EDITOR="nvim"
+export VISUAL="nvim"
 
 # opencode
 export PATH=/home/gfors/.opencode/bin:$PATH
+
+. "$HOME/.local/bin/env"
