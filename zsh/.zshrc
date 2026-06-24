@@ -140,39 +140,14 @@ export PATH=$PATH:~/.spicetify
 export PATH="$HOME/.config/composer/vendor/bin:$PATH"
 export JAVA_HOME=$(readlink -f /usr/bin/java | sed "s:/bin/java::")
 export PATH=$JAVA_HOME/bin:$PATH
-export EDITOR="vi"
-export VISUAL="vi"
+export EDITOR="nvim"
+export VISUAL="nvim"
 
 # opencode
 export PATH=/home/gfors/.opencode/bin:$PATH
 
 . "$HOME/.local/bin/env"
 
-if [[ -z "$TMUX" ]] && [[ $- == *i* ]]; then
-  SESSION_NAME="main"
-  CHECKPOINT_FILE="$HOME/.config/tmux-autostart/checkpoint_dir"
-  if tmux has-session -t "$SESSION_NAME" 2>/dev/null; then
-    tmux attach-session -t "$SESSION_NAME"
-  else
-    START_DIR="$HOME"
-
-    if [[ -f "$CHECKPOINT_FILE" ]] && [[ -r "$CHECKPOINT_FILE" ]] && [[ -s "$CHECKPOINT_FILE" ]]; then
-        local_checkpoint=$(cat "$CHECKPOINT_FILE" 2>/dev/null)
-        if [[ -n "$local_checkpoint" ]] && [[ -d "$local_checkpoint" ]]; then
-            START_DIR="$local_checkpoint"
-        fi
-    fi
-
-    tmux new-session -d -s "$SESSION_NAME" -n "$EDITOR" -c "$START_DIR"
-    tmux send-keys -t "$SESSION_NAME:$EDITOR" "$EDITOR" C-m
-
-    tmux new-window -t "$SESSION_NAME" -n "shell"
-
-    tmux select-window -t "$SESSION_NAME:$EDITOR"
-
-    tmux attach-session -t "$SESSION_NAME"
-  fi
-fi
 
 set-checkpoint() {
     local checkpoint_dir="$HOME/.config/tmux-autostart"
@@ -195,3 +170,45 @@ set-checkpoint() {
     fi
 }
 
+tmux_init() {
+  if [[ -z "$TMUX" ]] && [[ $- == *i* ]] && [[ -t 1 ]]; then
+    SESSION_NAME="main"
+    CHECKPOINT_FILE="$HOME/.config/tmux-autostart/checkpoint_dir"
+    
+    if tmux has-session -t "$SESSION_NAME" 2>/dev/null; then
+      echo -n "run new tmux session? [N/y]: "
+      read -r choice
+      case "$choice" in 
+        y|Y)
+          tmux new-session
+          ;;
+        *)
+          tmux attach-session -t "$SESSION_NAME"
+          ;;
+      esac
+    else
+      START_DIR="$HOME"
+
+      if [[ -f "$CHECKPOINT_FILE" ]] && [[ -r "$CHECKPOINT_FILE" ]] && [[ -s "$CHECKPOINT_FILE" ]]; then
+          local_checkpoint=$(cat "$CHECKPOINT_FILE" 2>/dev/null)
+          if [[ -n "$local_checkpoint" ]] && [[ -d "$local_checkpoint" ]]; then
+              START_DIR="$local_checkpoint"
+          fi
+      fi
+
+      tmux new-session -d -s "$SESSION_NAME" -n "$EDITOR" -c "$START_DIR"
+      tmux send-keys -t "$SESSION_NAME:$EDITOR" "$EDITOR" C-m
+      tmux new-window -t "$SESSION_NAME" -n "shell"
+      tmux select-window -t "$SESSION_NAME:$EDITOR"
+      tmux attach-session -t "$SESSION_NAME"
+    fi
+  fi
+}
+
+_shortcut_init_widget() {
+  BUFFER="tmux_init"
+  zle accept-line
+}
+zle -N _shortcut_init_widget
+
+bindkey "^A" _shortcut_init_widget
