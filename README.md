@@ -1,24 +1,24 @@
 # Dotfiles
 
-Koleksi konfigurasi sistem saya yang dikelola menggunakan [GNU Stow](https://www.gnu.org/software/stow/).
+A collection of my system configurations managed with [GNU Stow](https://www.gnu.org/software/stow/).
 
-## Mengapa Menggunakan GNU Stow?
+## Why use GNU Stow?
 
-Stow adalah alat manajemen symlink yang sangat efisien untuk dotfiles. Alih-alih menyalin file secara manual atau membuat symlink satu per satu, Stow mengelola seluruh direktori konfigurasi dengan membuat symlink dari direktori dotfiles ke direktori home (`~`).
+Stow is an efficient symlink management tool for dotfiles. Instead of manually copying files or creating individual symlinks, Stow manages entire configuration directories by creating symlinks from the dotfiles repository to your home directory (`~`).
 
-### Mekanisme Symlink
-Saat Anda menjalankan `stow <nama_folder>`, Stow akan membuat symlink untuk setiap file di dalam folder tersebut ke lokasi yang sesuai di direktori root Anda. Contoh:
-- Folder dotfiles: `~/dotfiles/zsh/.zshrc`
-- Hasil: `~/.zshrc` akan menjadi sebuah symlink yang menunjuk ke `~/dotfiles/zsh/.zshrc`.
+### Symlink Mechanism
+When you run `stow <folder_name>`, Stow creates a symlink for each file within that folder to the corresponding location in your home directory. Example:
+- Dotfiles folder: `~/dotfiles/zsh/.zshrc`
+- Result: `~/.zshrc` becomes a symlink pointing to `~/dotfiles/zsh/.zshrc`.
 
-**Keuntungan:**
-1. **Version Control:** Seluruh konfigurasi berada dalam satu direktori (Git repository).
-2. **Portabilitas:** Mudah untuk melakukan sinkronisasi ke mesin lain.
-3. **Pembersihan:** Menghapus konfigurasi cukup dengan menjalankan `stow -D <nama_folder>` (delete/unstow).
+**Advantages:**
+1. **Version Control:** All configurations are kept in a single directory (Git repository).
+2. **Portability:** Easily synchronize and deploy across different machines.
+3. **Cleanup:** Removing configurations is simple by running `stow -D <folder_name>` (delete/unstow).
 
-## Instalasi GNU Stow
+## GNU Stow Installation
 
-Pastikan Anda telah menginstal `stow` di sistem Anda:
+Ensure `stow` is installed on your system:
 
 - **Debian/Ubuntu:**
   ```bash
@@ -33,34 +33,34 @@ Pastikan Anda telah menginstal `stow` di sistem Anda:
   brew install stow
   ```
 
-## Cara Setup Konfigurasi
+## Setup Configuration
 
-1. **Clone repositori ini:**
+1. **Clone this repository:**
    ```bash
-   git clone <url-repositori-anda> ~/dotfiles
+   git clone <your-repository-url> ~/dotfiles
    cd ~/dotfiles
    ```
 
-2. **Gunakan Stow untuk menginstal konfigurasi:**
-   Anda bisa menginstal semua konfigurasi sekaligus atau satu per satu.
+2. **Use Stow to apply configurations:**
+   You can install configurations individually or all at once.
 
-   - Menginstal konfigurasi tertentu (misal: zsh):
+   - Apply a specific configuration (e.g., zsh):
      ```bash
      stow zsh
      ```
-   - Menginstal semua folder yang ada:
+   - Apply all configurations:
      ```bash
      stow .
      ```
 
-3. **Menghapus (Unstow) konfigurasi:**
-   Jika Anda ingin menghapus symlink konfigurasi tersebut:
+3. **Removing (Unstowing) configurations:**
+   If you want to remove the symlinks:
    ```bash
-   stow -D <nama_folder>
+   stow -D <folder_name>
    ```
 
-## Struktur Direktori
-- `zsh/`: Konfigurasi Zsh.
-- `nvim/`: Konfigurasi Neovim.
-- `tmux/`: Konfigurasi Tmux.
-- `kitty/`: Konfigurasi terminal Kitty.
+## Directory Structure
+- `zsh/`: Zsh configuration.
+- `nvim/`: Neovim configuration.
+- `tmux/`: Tmux configuration.
+- `kitty/`: Kitty terminal configuration.
