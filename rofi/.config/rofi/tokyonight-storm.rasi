@@ -1,0 +1,83 @@
+/* =========================================================================
+   Tokyo Night Storm Rofi Theme
+   ========================================================================= */
+
+* {
+    /* Definisikan variabel warna */
+    bg0:     #1a1b26; /* Dark background */
+    bg1:     #1f2335; /* Storm main background */
+    bg2:     #24283b; /* Slightly lighter background */
+    bg3:     #2f354f; /* Active/Selection background */
+    fg0:     #c0caf5; /* Warm white text */
+    fg1:     #a9b1d6; /* Secondary gray-blue text */
+    accent:  #7aa2f7; /* Tokyo Night Blue */
+    urgent:  #f7768e; /* Tokyo Night Red */
+
+    /* Terapkan ke elemen default */
+    background-color:   transparent;
+    text-color:         @fg0;
+    font:               "FiraCode Nerd Font 11";
+}
+
+window {
+    background-color:   @bg1;
+    border:             2px;
+    border-color:       @accent;
+    border-radius:      3px;
+    width:              480px;
+    padding:            20px;
+}
+
+mainbox {
+    children:           [ inputbar, listview ];
+    spacing:            12px;
+}
+
+inputbar {
+    background-color:   @bg2;
+    border-radius:      8px;
+    padding:            10px 16px;
+    children:           [ prompt, entry ];
+    spacing:            10px;
+}
+
+prompt {
+    text-color:         @accent;
+    font:               "FiraCode Nerd Font Bold 11";
+}
+
+entry {
+    placeholder:        "Search...";
+    placeholder-color:  @fg1;
+    text-color:         @fg0;
+}
+
+listview {
+    fixed-height:       true;
+    dynamic:            true;
+    scrollbar:          false;
+    lines:              8;
+    spacing:            4px;
+}
+
+element {
+    padding:            8px 12px;
+    border-radius:      6px;
+    background-color:   transparent;
+    text-color:         @fg1;
+}
+
+element selected {
+    background-color:   @bg3;
+    text-color:         @accent;
+}
+
+element-icon {
+    size:               24px;
+    padding:            0 8px 0 0;
+}
+
+element-text {
+    text-color:         inherit;
+    vertical-align:     0.5;
+}

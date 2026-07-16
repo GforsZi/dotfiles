@@ -1,0 +1,55 @@
+@define-color bg0 #1a1b26;      /* Dark background (Default) */
+@define-color bg1 #1f2335;      /* Tokyo Night Storm main background */
+@define-color bg2 #24283b;      /* Slightly lighter background */
+@define-color bg3 #2f354f;      /* Active/Selection background */
+@define-color bg4 #383e5a;      /* Medium gray-blue */
+@define-color bg5 #414868;      /* Terminal black / Gray */
+@define-color bg6 #565f89;      /* Comments / Slate gray */
+@define-color bg7 #787c99;      /* Light slate */
+@define-color bg8 #16161e;      /* Deepest dark background */
+@define-color bg9 #181923;      /* Deep dark alternative */
+@define-color bga #1f2335;
+@define-color bgb #1f2335;
+@define-color bgc #1f2335;
+@define-color bgd #1a1b26;
+@define-color bge #1a1b26;
+@define-color bgf #1a1b26;
+@define-color bg0h #7aa2f7;     /* Blue accent highlight */
+@define-color bg0_h #2ac3de;    /* Cyan accent highlight */
+@define-color grey0 #565f89;    /* Muted gray */
+@define-color grey1 #414868;    /* Dark gray */
+
+@define-color background #1f2335;  /* Storm Main Background */
+@define-color foreground #a9b1d6;  /* Storm Main Foreground */
+@define-color cursor     #c0caf5;  /* Active cursor color */
+@define-color fg0 #c0caf5;         /* Warm white / Light foreground */
+
+@define-color bgx #292e42;
+
+@define-color fg #a9b1d6;
+
+/* TOKYO NIGHT PALETTE COLORS */
+@define-color red #f7768e;
+@define-color orange #ff9e64;
+@define-color yellow #e0af68;
+@define-color green #9ece6a;
+@define-color aqua #73daca;
+@define-color blue #7aa2f7;
+
+@define-color red2 #f7768e;
+@define-color red3 #db4b4b;
+@define-color orange2 #ff9e64;
+
+@define-color purple #bb9af3;
+@define-color grey2 #9ece6a;
+
+/* SEMANTIC & INTERACTIVE COLORS */
+@define-color accent #7aa2f7;      /* Tokyo Night Blue */
+@define-color accentc #2ac3de;     /* Tokyo Night Cyan */
+@define-color surface0 #3b4261;    /* Accent background light */
+@define-color surface1 #1f2335;    /* Base container */
+@define-color surface2 #24283b;    /* Secondary container */
+@define-color cyan #7dcfff;
+@define-color text #c0caf5;
+@define-color base #1a1b26;
+@define-color magenta #bb9af3;

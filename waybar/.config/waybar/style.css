@@ -1,0 +1,98 @@
+@import "./colors.css";
+* {
+    all: unset;
+    font-family: "Monocraft Nerd Font", "JetBrainsMono Nerd Font Propo", "Google Sans Flex", "Roboto","Noto Sans Japanese";
+}
+
+.modules-left,
+.modules-right,
+.modules-center{
+    color: @bg0h;
+    padding: 0px 3px;
+    border-radius: 20px;
+    margin-top: -2px;
+}
+.modules-right{
+    font-size: 10px;
+}
+tooltip{
+    background-color: @bg1;
+    color: @bg0h;
+    border-radius: 3px;
+    border: 1px solid rgba(31, 72, 142, 0.8);
+}
+#tray {
+    font-size: 10px;
+}
+#clock{
+    font-size: 10px;
+    font-weight: bold;
+}
+#workspaces{
+  font-size: 10px;
+    padding: 2px 3px;
+    margin: 4px 0px;
+    border-radius: 99px;
+    margin-left: -3;
+}
+#workspaces button{
+    background-color: @bg3;
+    padding: 1px 3px;
+    border-radius: 99px;
+    margin: 0 1px;
+    transition: all 200ms ease-in-out;
+    min-width: 8px;
+}
+#workspaces button.active{
+    padding: 0px 3px 1px 4px;
+    background-color: @bg5;
+    color: @bg3;
+    min-width: 1.4rem;
+}
+#workspaces button.empty{
+    color: @grey1;
+}
+#workspaces button.active.empty{
+    color: @bg1;
+    background-color: @bg5;
+}
+
+/* #battery { */
+/*   letter-spacing: 0.1px; */
+/* } */
+
+/* #network{ */
+/*     margin-right: 0; */
+/* } */
+
+#custom-power{
+    font-size: 15px;
+}
+
+#custom-menu{
+  font-size: 15px;
+}
+
+#tray button {
+    background-color: rgba(31, 72, 142, 0.8);
+}
+
+menu {
+    background: rgba(43, 48, 59, 0.85); /* Ganti dengan warna background Waybar Anda + transparansi */
+    border: 1px solid #45475a; /* Opsional: beri border tipis agar terlihat rapi */
+    border-radius: 3px;
+    padding: 4px;
+}
+
+/* Mengatur tampilan item di dalam menu klik kanan */
+menu menuitem {
+    color: @bg0h;
+    background: transparent;
+    padding: 4px 12px;
+    border-radius: 2px;
+}
+
+/* Tampilan saat kursor diarahkan (hover) ke item menu */
+menu menuitem:hover {
+    background-color: rgba(255, 255, 255, 0.1); /* Efek highlight transparan */
+}
