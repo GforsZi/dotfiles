@@ -28,6 +28,10 @@ hl.monitor({
 local terminal    = "kitty"
 local fileManager = "thunar"
 local menu        = "uwsm app -- rofi -show drun"
+local browser     = "brave"
+
+-- wallpaper var
+local wallps = "~/Pictures/wallps/cat-in-the-swamp-wallps.gif"
 
 
 -------------------
@@ -38,11 +42,11 @@ local menu        = "uwsm app -- rofi -show drun"
 hl.on("hyprland.start", function () 
     hl.exec_cmd("mkdir -p ~/.cache/awww")
     hl.exec_cmd("uwsm app -- awww-daemon")
-    hl.exec_cmd("uwsm app -- awww img ~/Pictures/wallps/catppucin.png")
+    hl.exec_cmd("uwsm app -- awww img " .. wallps)
     hl.exec_cmd("uwsm app -- waybar")
     hl.exec_cmd("uwsm app -- mako")
     hl.exec_cmd("uwsm app -- wlsunset -T 5201 -t 5200")
-    hl.exec_cmd("uwsm app -- hyprctl setcursor Bibata-Modern-Classic 24")
+    hl.exec_cmd("uwsm app -- hyprctl setcursor Bibata-Modern-Classic 20")
 end)
 
 
@@ -210,15 +214,15 @@ hl.bind(mainMod .. " + Return", hl.dsp.exec_cmd("uwsm app -- " .. terminal))
 hl.bind(mainMod .. " + Q", hl.dsp.window.close())
 hl.bind(mainMod .. " + M", hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"))
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd("uwsm app -- " .. fileManager))
+hl.bind(mainMod .. " + W", hl.dsp.exec_cmd("uwsm app -- " .. browser))
 hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))
 hl.bind(mainMod .. " + Space", hl.dsp.exec_cmd(menu))
 hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
 hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit"))    
 
 -- FITUR TAMBAHAN: SCREENSHOT (Grim + Slurp + Wl-clipboard)
-hl.bind("Print", hl.dsp.exec_cmd("grim - | wl-copy && notify-send 'Screenshot' 'Seluruh layar disalin ke clipboard'"))
-hl.bind(mainMod .. " + SHIFT + S", hl.dsp.exec_cmd("grim -g \"$(slurp)\" - | wl-copy && notify-send 'Screenshot' 'Area terpilih disalin'"))
-
+hl.bind(mainMod .. " + CTRL + S", hl.dsp.exec_cmd("grim - | wl-copy && notify-send 'Screenshot' 'The entire screen is copied to the clipboard'"))
+hl.bind(mainMod .. " + SHIFT + S", hl.dsp.exec_cmd([[mkdir -p ~/Pictures/Screenshots && grim -g "$(slurp)" - | tee ~/Pictures/Screenshots/$(date +%Y%m%d_%H%M%S).png | wl-copy && notify-send -a "grim" -i "camera-photo" 'Screenshot' 'Saved to ~/Pictures/Screenshots & copied to clipboard']]))
 -- Move focus with mainMod + arrow keys
 hl.bind(mainMod .. " + left",  hl.dsp.focus({ direction = "left" }))
 hl.bind(mainMod .. " + right", hl.dsp.focus({ direction = "right" }))
@@ -227,6 +231,8 @@ hl.bind(mainMod .. " + down",  hl.dsp.focus({ direction = "down" }))
 
 -- refresh programs
 hl.bind(mainMod .. " + SHIFT + B", hl.dsp.exec_cmd("pkill -9 waybar || uwsm app -- waybar"))
+hl.bind(mainMod .. " + CTRL + B", hl.dsp.exec_cmd("uwsm app -- awww img " .. wallps))
+
 -- Switch workspaces with mainMod + [0-9]
 for i = 1, 10 do
     local key = i % 10 

@@ -78,13 +78,12 @@ tooltip{
 }
 
 menu {
-    background: rgba(43, 48, 59, 0.85); /* Ganti dengan warna background Waybar Anda + transparansi */
-    border: 1px solid #45475a; /* Opsional: beri border tipis agar terlihat rapi */
+    background: @bg1; /* Ganti dengan warna background Waybar Anda + transparansi */
+    border: 1px solid rgba(31, 72, 142, 0.8); /* Opsional: beri border tipis agar terlihat rapi */
     border-radius: 3px;
     padding: 4px;
 }
 
-/* Mengatur tampilan item di dalam menu klik kanan */
 menu menuitem {
     color: @bg0h;
     background: transparent;
@@ -94,5 +93,5 @@ menu menuitem {
 
 /* Tampilan saat kursor diarahkan (hover) ke item menu */
 menu menuitem:hover {
-    background-color: rgba(255, 255, 255, 0.1); /* Efek highlight transparan */
+    background-color: @bg3; /* Efek highlight transparan */
 }

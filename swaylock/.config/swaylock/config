@@ -1,0 +1,34 @@
+screenshots
+clock
+indicator
+indicator-radius=100
+indicator-thickness=7
+effect-blur=7x5
+effect-vignette=0.5:0.5
+
+# Pengaturan Waktu/Jam
+timestr=%H:%M
+datestr=%A, %d %B %Y
+
+color=13141c
+inside-color=1a1b2680
+side-color=00000000
+line-color=00000000
+ring-color=2f354990
+text-color=c0caf5
+
+# Warna saat Salah / Memverifikasi Password
+ring-ver-color=7aa2f7
+inside-ver-color=1a1b2680
+text-ver-color=7aa2f7
+ring-wrong-color=f7768e
+inside-wrong-color=1a1b2680
+text-wrong-color=f7768e
+
+# Detail Tambahan
+key-hl-color=9ece6a
+bs-hl-color=f7768e
+caps-lock-key-hl-color=e0af68
+caps-lock-bs-hl-color=f7768e
+disable-caps-lock-text
+fade-in=0.2
