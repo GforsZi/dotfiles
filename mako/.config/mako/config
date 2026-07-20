@@ -1,0 +1,42 @@
+markup=1
+actions=1
+anchor=bottom-right
+margin=10
+
+font=Source Sans Pro Semi-Bold 10
+background-color=#24283b
+text-color=#c0caf5
+border-size=2
+border-radius=3
+border-color=#414868
+default-timeout=10000
+
+[urgency=high]
+text-color=#f7768e
+border-color=#db4b4b
+
+[hidden]
+format=Hidden: %h [%t]
+
+[urgency=low]
+text-color=#565f89
+
+[urgency=low actionable]
+border-color=#565f89
+
+[urgency=normal actionable]
+border-color=#7aa2f7
+
+[urgency=high actionable]
+border-color=#bb9af7
+
+[app-name=playerctl]
+max-icon-size=96
+
+[app-name=clementine]
+max-icon-size=96
+
+[app-name=i3-hint]
+max-icon-size=48
+format=%s\n%b
+width=150
