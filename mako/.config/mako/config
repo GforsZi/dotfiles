@@ -10,6 +10,7 @@ border-size=2
 border-radius=3
 border-color=#414868
 default-timeout=10000
+format=<b><span size="large">%s</span></b>\n<span size="small">%b</span>
 
 [urgency=high]
 text-color=#f7768e

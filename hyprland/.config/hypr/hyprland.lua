@@ -234,6 +234,11 @@ hl.bind(mainMod .. " + down",  hl.dsp.focus({ direction = "down" }))
 hl.bind(mainMod .. " + SHIFT + B", hl.dsp.exec_cmd("pkill -9 waybar || uwsm app -- waybar"))
 hl.bind(mainMod .. " + CTRL + B", hl.dsp.exec_cmd("uwsm app -- awww img " .. wallps))
 
+-- Switch power profile
+hl.bind(mainMod .. " + F1", hl.dsp.exec_cmd([[powerprofilesctl set power-saver && notify-send "power profile daemon" "Switch to power-server" ]]))
+hl.bind(mainMod .. " + F2", hl.dsp.exec_cmd([[powerprofilesctl set balanced && notify-send "power profile daemon" "Switch to balanced" ]]))
+hl.bind(mainMod .. " + F3", hl.dsp.exec_cmd([[powerprofilesctl set performance && notify-send "power profile daemon" "Switch to performance" ]]))
+
 -- Switch workspaces with mainMod + [0-9]
 for i = 1, 10 do
     local key = i % 10 
