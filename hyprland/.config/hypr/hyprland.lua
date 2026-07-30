@@ -31,7 +31,7 @@ local menu        = "uwsm app -- rofi -show drun"
 local browser     = "brave"
 
 -- wallpaper var
-local wallps = "~/Pictures/wallps/cat-in-the-swamp-wallps.gif"
+local wallps = "~/Pictures/wallps/nixos.png"
 
 
 -------------------
