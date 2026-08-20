@@ -45,8 +45,8 @@ tooltip{
 }
 #workspaces button.active{
     padding: 0px 3px 1px 4px;
-    background-color: @bg5;
-    color: @bg3;
+    background-color: @bg2;
+    color: @accent;
     min-width: 1.4rem;
 }
 #workspaces button.empty{
@@ -78,8 +78,8 @@ tooltip{
 }
 
 menu {
-    background: @bg1; /* Ganti dengan warna background Waybar Anda + transparansi */
-    border: 1px solid rgba(31, 72, 142, 0.8); /* Opsional: beri border tipis agar terlihat rapi */
+    background: @bg1;
+    border: 1px solid rgba(31, 72, 142, 0.8);
     border-radius: 3px;
     padding: 4px;
 }
@@ -91,7 +91,6 @@ menu menuitem {
     border-radius: 2px;
 }
 
-/* Tampilan saat kursor diarahkan (hover) ke item menu */
 menu menuitem:hover {
-    background-color: @bg3; /* Efek highlight transparan */
+    background-color: @bg3;
 }
