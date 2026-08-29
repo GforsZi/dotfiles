@@ -25,7 +25,7 @@ hl.monitor({
 
 -- Set programs that you use (Disesuaikan dengan package NixOS Anda)
 local terminal = "kitty"
-local fileManager = "thunar"
+local fileManager = "pcmanfm"
 local spotify = "spotify"
 local menu = "uwsm app -- rofi -show drun"
 local browser = "brave"
@@ -205,10 +205,10 @@ hl.gesture({
 ---------------------
 
 local mainMod = "SUPER"
-
 -- Aplikasi Utama
 hl.bind(mainMod .. " + Return", hl.dsp.exec_cmd("uwsm app -- " .. terminal))
 hl.bind(mainMod .. " + Q", hl.dsp.window.close())
+hl.bind(mainMod .. " + CTRL + Q", hl.dsp.exec_cmd("wlogout --protocol layer-shell"))
 hl.bind(
 	mainMod .. " + M",
 	hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'")
