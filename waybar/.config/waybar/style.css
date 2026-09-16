@@ -8,9 +8,11 @@
 .modules-right,
 .modules-center{
     color: @bg0h;
-    padding: 0px 3px;
-    border-radius: 20px;
-    margin-top: -2px;
+    padding: 0px 0px;
+    border-radius: 3px;
+    margin-top: -6px;
+    /* margin-bottom: -6px; */
+    /* background-color: #000; */
 }
 .modules-right{
     font-size: 10px;

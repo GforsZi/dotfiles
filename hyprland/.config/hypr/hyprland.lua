@@ -7,6 +7,12 @@
 -- Refer to the wiki for more information.
 -- https://wiki.hypr.land/Configuring/Start/
 
+---------------------
+---- FILE CONFIG ----
+---------------------
+
+---@diagnostic disable: undefined-global
+
 ------------------
 ---- MONITORS ----
 ------------------
@@ -59,10 +65,6 @@ hl.env("XCURSOR_THEME", "Bibata-Modern-Classic")
 hl.env("HYPRCURSOR_SIZE", "20")
 hl.env("HYPRCURSOR_THEME", "Bibata-Modern-Classic")
 
--- hl.config.exec_once = {
---     -- "hyprctl setcursor Bibata-Modern-Classic 24"
--- }
-
 -----------------------
 ---- LOOK AND FEEL ----
 -----------------------
@@ -73,7 +75,7 @@ hl.config({
 		gaps_in = 1,
 
 		gaps_out = {
-			top = 28,
+			top = 19,
 			bottom = 2,
 			left = 2,
 			right = 2,
@@ -205,23 +207,23 @@ hl.gesture({
 ---------------------
 
 local mainMod = "SUPER"
--- Aplikasi Utama
+-- Main App
 hl.bind(mainMod .. " + Return", hl.dsp.exec_cmd("uwsm app -- " .. terminal))
 hl.bind(mainMod .. " + Q", hl.dsp.window.close())
 hl.bind(mainMod .. " + CTRL + Q", hl.dsp.exec_cmd("wlogout --protocol layer-shell"))
 hl.bind(
-	mainMod .. " + M",
+	mainMod .. " + CTRL + M",
 	hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'")
 )
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd("uwsm app -- " .. fileManager))
 hl.bind(mainMod .. " + SHIFT + E", hl.dsp.exec_cmd("uwsm app -- " .. spotify))
 hl.bind(mainMod .. " + W", hl.dsp.exec_cmd("uwsm app -- " .. browser))
 hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))
-hl.bind(mainMod .. " + Space", hl.dsp.exec_cmd(menu))
+hl.bind(mainMod .. " + Space", hl.dsp.exec_cmd("uwsm app -- " .. menu))
 hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
 hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit"))
 
--- FITUR TAMBAHAN: SCREENSHOT (Grim + Slurp + Wl-clipboard)
+-- SCREENSHOT (Grim + Slurp + Wl-clipboard)
 hl.bind(
 	mainMod .. " + CTRL + S",
 	hl.dsp.exec_cmd("grim - | wl-copy && notify-send 'Screenshot' 'The entire screen is copied to the clipboard'")
@@ -239,7 +241,7 @@ hl.bind(mainMod .. " + up", hl.dsp.focus({ direction = "up" }))
 hl.bind(mainMod .. " + down", hl.dsp.focus({ direction = "down" }))
 
 -- refresh programs
-hl.bind(mainMod .. " + SHIFT + B", hl.dsp.exec_cmd("pkill -9 waybar || uwsm app -- waybar"))
+hl.bind(mainMod .. " + CTRL + T", hl.dsp.exec_cmd("pkill -9 waybar || uwsm app -- waybar"))
 hl.bind(mainMod .. " + CTRL + B", hl.dsp.exec_cmd("uwsm app -- awww img " .. wallps))
 
 -- Switch power profile
