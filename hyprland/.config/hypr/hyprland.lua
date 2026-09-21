@@ -32,8 +32,9 @@ hl.monitor({
 -- Set programs that you use (Disesuaikan dengan package NixOS Anda)
 local terminal = "kitty"
 local fileManager = "pcmanfm"
-local spotify = "spotify"
+local musicPlayer = "spotify --enable-features=UseOzonePlatform,VAAPI --ozone-platform=wayland --ignore-gpu-blocklist"
 local menu = "uwsm app -- rofi -show drun"
+local volumeControl = "pavucontrol"
 local browser = "brave"
 
 -- wallpaper var
@@ -210,18 +211,21 @@ local mainMod = "SUPER"
 -- Main App
 hl.bind(mainMod .. " + Return", hl.dsp.exec_cmd("uwsm app -- " .. terminal))
 hl.bind(mainMod .. " + Q", hl.dsp.window.close())
+hl.bind(mainMod .. " + E", hl.dsp.exec_cmd("uwsm app -- " .. fileManager))
+hl.bind(mainMod .. " + D", hl.dsp.exec_cmd("uwsm app -- " .. musicPlayer))
+hl.bind(mainMod .. " + W", hl.dsp.exec_cmd("uwsm app -- " .. browser))
+hl.bind(mainMod .. " + S", hl.dsp.exec_cmd("uwsm app -- " .. volumeControl))
+hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))
+hl.bind(mainMod .. " + Space", hl.dsp.exec_cmd(menu))
+hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
+hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit"))
+
+-- Main system
 hl.bind(mainMod .. " + CTRL + Q", hl.dsp.exec_cmd("wlogout --protocol layer-shell"))
 hl.bind(
 	mainMod .. " + CTRL + M",
 	hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'")
 )
-hl.bind(mainMod .. " + E", hl.dsp.exec_cmd("uwsm app -- " .. fileManager))
-hl.bind(mainMod .. " + SHIFT + E", hl.dsp.exec_cmd("uwsm app -- " .. spotify))
-hl.bind(mainMod .. " + W", hl.dsp.exec_cmd("uwsm app -- " .. browser))
-hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))
-hl.bind(mainMod .. " + Space", hl.dsp.exec_cmd("uwsm app -- " .. menu))
-hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
-hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit"))
 
 -- SCREENSHOT (Grim + Slurp + Wl-clipboard)
 hl.bind(
