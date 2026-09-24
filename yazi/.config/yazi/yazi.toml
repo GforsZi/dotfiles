@@ -1,0 +1,27 @@
+[manager]
+ratio = [1, 4, 3]
+sort_by = "alphabetical"
+sort_sensitive = false
+sort_reverse = false
+show_hidden = true
+show_symlink = true
+
+[preview]
+tab_size = 2
+max_width = 1000
+max_height = 1000
+cache_dir = ""
+
+[opener]
+edit = [
+	{ run = 'nvim "$@"', desc = "Neovim", block = true, for = "unix" },
+]
+open = [
+	{ run = 'xdg-open "$@"', desc = "Open", for = "linux" },
+	{ run = 'open "$@"', desc = "Open", for = "macos" },
+]
+reveal = [
+	{ run = 'xdg-open "$(dirname "$1")"', desc = "Reveal", for = "linux" },
+	{ run = 'open -R "$1"', desc = "Reveal", for = "macos" },
+]
+
