@@ -22,10 +22,23 @@
     "clock"
   ],
   "modules-center": [
-    "hyprland/workspaces"
+    "custom/ws-prev",
+    "hyprland/workspaces",
+    "custom/ws-next"
   ],
+  "custom/ws-prev": {
+    "format": "󰁑",
+    "tooltip": false,
+    "on-click": "$HOME/.config/hypr/scripts/ws-slide.sh e-1"
+  },
+  "custom/ws-next": {
+    "format": "󰁘",
+    "tooltip": false,
+    "on-click": "$HOME/.config/hypr/scripts/ws-slide.sh e+1"
+  },
   "custom/menu": {
     "format": "  ",
+    "on-click": "uwsm app -- rofi -show drun",
     "tooltip-format": " i use nixos btw ",
     "tooltip": true
   },
@@ -44,7 +57,6 @@
     "format": " {}  <span size=\"115%\"></span>",
     "tooltip": false
   },
-
   "hyprland/workspaces": {
     "format": "{name}",
     "format-icons": {
@@ -87,12 +99,16 @@
     "interface": "wlp0s20f3",
     "interval": 1,
     "format": "{ifname}",
-    "format-wifi": "{icon}", //", {essid}  {signalStrength}% 
+    "format-wifi": "{icon}",
     "format-icons": [
-      ""
+      "󰤯",
+      "󰤟",
+      "󰤢",
+      "󰤥",
+      "󰤨"
     ],
     "format-ethernet": "{ipaddr}/{cidr} 󰊗",
-    "format-disconnected": " ",
+    "format-disconnected": "󰜺",
     "tooltip-format": "{ifname} via {gwaddr} 󰊗",
     "tooltip-format-wifi": "{essid} {signalStrength}%",
     "tooltip-format-ethernet": "{ifname} ",
@@ -104,17 +120,17 @@
     "interval": 1,
     "format": " {:%I:%M:%S %p}",
     "max-length": 20,
-    "tooltip-format": " {:%A} ",
+    "tooltip-format": " {:%A %d-%m-%Y}",
     "layer": "left"
   },
   "battery": {
     "format": "{capacity}% {icon} ",
+    "format-charging": "{capacity}% 󰂄 ",
+    "format-plugged": "{capacity}% 󰚥 ",
+    "format-full": "{capacity}% 󰁹 ",
     "format-icons": [
-      "",
-      "",
-      "",
-      "",
-      ""
+      "󰁺", "󰁻", "󰁼", "󰁽", "󰁾",
+      "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"
     ],
     "tooltip": true
   },
@@ -130,7 +146,7 @@
     "tooltip": false
   },
   "custom/power": {
-    "format": " ⏻ ",
+    "format": " 󰐥 ",
     "tooltip": false,
     "on-click": "wlogout --protocol layer-shell"
   }

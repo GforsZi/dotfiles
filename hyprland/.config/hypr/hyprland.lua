@@ -217,8 +217,10 @@ hl.bind(mainMod .. " + W", hl.dsp.exec_cmd("uwsm app -- " .. browser))
 hl.bind(mainMod .. " + S", hl.dsp.exec_cmd("uwsm app -- " .. volumeControl))
 hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))
 hl.bind(mainMod .. " + Space", hl.dsp.exec_cmd(menu))
+
 hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
 hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit"))
+hl.bind(mainMod .. " + L", hl.dsp.layout("swapsplit"))
 
 -- Main system
 hl.bind(mainMod .. " + CTRL + Q", hl.dsp.exec_cmd("wlogout --protocol layer-shell"))
@@ -270,6 +272,11 @@ for i = 1, 10 do
 	hl.bind(mainMod .. " + " .. key, hl.dsp.focus({ workspace = i }))
 	hl.bind(mainMod .. " + SHIFT + " .. key, hl.dsp.window.move({ workspace = i }))
 end
+
+local ws_slide = "/home/gfors/.config/hypr/scripts/ws-slide.sh"
+
+hl.bind(mainMod .. " + CTRL + left", hl.dsp.exec_cmd(ws_slide .. " e-1"))
+hl.bind(mainMod .. " + CTRL + right", hl.dsp.exec_cmd(ws_slide .. " e+1"))
 
 -- Scroll through existing workspaces with mainMod + scroll
 hl.bind(mainMod .. " + mouse_down", hl.dsp.focus({ workspace = "e+1" }))

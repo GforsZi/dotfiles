@@ -59,20 +59,28 @@ tooltip{
     background-color: @bg5;
 }
 
-/* #battery { */
-/*   letter-spacing: 0.1px; */
-/* } */
-
 /* #network{ */
 /*     margin-right: 0; */
 /* } */
 
-#custom-power{
-    font-size: 15px;
+#custom-ws-next,
+#custom-ws-prev {
+    font-size: 16px;
+}
+
+#custom-power {
+    font-size: 20px;
+}
+
+#custom-ws-prev:hover,
+#custom-ws-next:hover,
+#custom-power:hover,
+#custom-menu:hover {
+  color: @bg5;
 }
 
 #custom-menu{
-  font-size: 15px;
+  font-size: 16px;
 }
 
 #tray button {
