@@ -17,8 +17,6 @@
   "modules-left": [
     "custom/menu",
     "tray",
-    // "cpu",
-    // "custom/ram",
     "clock"
   ],
   "modules-center": [
@@ -42,20 +40,14 @@
     "tooltip-format": " i use nixos btw ",
     "tooltip": true
   },
+  "custom/power": {
+    "format": " 󰐥 ",
+    "tooltip": false,
+    "on-click": "wlogout --protocol layer-shell"
+  },
   "tray": {
     "icon-size": 13,
     "spacing": 8
-  },
-  "cpu": {
-    "format": "{usage}% ",
-    "tooltip": true,
-    "interval": 1
-  },
-  "custom/ram": {
-    "exec": "free -h | awk '/^Mem/ {print $3}'", //"free | awk '/^Mem/ {printf \"%.0f\", $3/$2 * 100}'",
-    "interval": 1,
-    "format": " {}  <span size=\"115%\"></span>",
-    "tooltip": false
   },
   "hyprland/workspaces": {
     "format": "{name}",
@@ -144,10 +136,5 @@
     "on-scroll-up": "brightnessctl set 1%+",
     "on-scroll-down": "brightnessctl set 1%-",
     "tooltip": false
-  },
-  "custom/power": {
-    "format": " 󰐥 ",
-    "tooltip": false,
-    "on-click": "wlogout --protocol layer-shell"
   }
 }
